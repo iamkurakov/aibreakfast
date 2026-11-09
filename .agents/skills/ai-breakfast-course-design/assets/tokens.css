@@ -1,0 +1,102 @@
+/* AI Breakfast course design — extracted and normalized from iamkurakov/aibreakfast */
+:root,
+[data-ai-course-theme="dark"] {
+  --bg: #0A0A0A;
+  --ink: #F2F1EC;
+  --ink-2: #B8B5AC;
+  --muted: #6E6A60;
+  --rule: #2A2925;
+  --card: #131211;
+  --accent: #C9FF3D;
+  --card-accent: rgba(201,255,61,.08);
+  --font-serif: 'Playfair Display','PT Serif',Georgia,serif;
+  --font-sans: 'Inter Tight','Manrope',system-ui,sans-serif;
+  --font-mono: 'JetBrains Mono',ui-monospace,monospace;
+  --pad-x: 120px;
+  --pad-top: 100px;
+  --pad-bottom: 96px;
+  --chrome-offset: 48px;
+}
+[data-ai-course-theme="light"] {
+  --bg: #F4F1EA;
+  --ink: #0A0A0A;
+  --ink-2: #3A3833;
+  --muted: #8A8779;
+  --rule: #D9D4C7;
+  --card: #FFFFFF;
+  --accent: #5C7A0F;
+  --card-accent: rgba(201,255,61,.18);
+}
+.ai-slide,
+.ai-slide * { box-sizing: border-box; }
+.ai-slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+  font-family: var(--font-sans);
+}
+.ai-slide--bleed { padding: 0; }
+.ai-slide__chrome-left,
+.ai-slide__chrome-right,
+.ai-slide__chrome-bottom {
+  position: absolute;
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ai-slide__chrome-left { left: var(--pad-x); top: var(--chrome-offset); }
+.ai-slide__chrome-right { right: var(--pad-x); top: var(--chrome-offset); }
+.ai-slide__chrome-bottom {
+  left: var(--pad-x); bottom: var(--chrome-offset);
+  letter-spacing: .22em;
+}
+.ai-brand-dot { color: var(--accent); margin-right: 24px; }
+.ai-slide__title {
+  margin: 0;
+  font: 500 128px/.98 var(--font-serif);
+  letter-spacing: -.02em;
+}
+.ai-slide__title em, .ai-accent-italic { color: var(--accent); font-style: italic; }
+.ai-slide__body {
+  font: 400 36px/1.35 var(--font-sans);
+  color: var(--ink-2);
+}
+.ai-slide__small { font: 400 28px/1.4 var(--font-sans); color: var(--ink-2); }
+.ai-slide__eyebrow {
+  font: 400 24px/1.3 var(--font-mono);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ai-slide__grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.ai-slide__grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+.ai-card {
+  padding: 40px 44px;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  background: var(--card);
+}
+.ai-card--accent { border-color: var(--accent); background: var(--card-accent); }
+.ai-rule { height: 1px; background: var(--rule); border: 0; }
+.ai-metric {
+  font: 500 156px/1 var(--font-serif);
+  letter-spacing: -.04em;
+  color: var(--accent);
+}
+.ai-bar { height: 14px; background: var(--rule); position: relative; }
+.ai-bar__fill { height: 100%; background: var(--ink); }
+.ai-bar__fill--accent { background: var(--accent); }
+.ai-link-card { transition: border-color .15s, background .15s; }
+.ai-link-card:hover { border-color: var(--accent); background: var(--card-accent); }
+::selection { background: var(--accent); color: #0A0A0A; }
+/* Scale the fixed-size .ai-slide from the stage/container. Do not
+   replace the 1920x1080 authoring geometry with arbitrary fluid px. */
